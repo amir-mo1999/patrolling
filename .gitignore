@@ -1,6 +1,6 @@
 mongo-data
 frontend/node_modules
-
+foxglove-studio/public/lib/foxglove
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,nextjs,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,nextjs,python
