@@ -9,6 +9,7 @@ services:
     volumes:
       - ./frontend/src:/home/appuser/src
       - ./frontend/tailwind.config.js:/home/appuser/tailwind.config.js
+      - foxglove-src-volume:/home/appuser/public/lib/foxglove
     env_file:
       - ./frontend/.env
     networks:
@@ -27,6 +28,16 @@ services:
       - ./backend/.env
     depends_on:
       - mongo
+    networks:
+      - app-network
+
+  foxglove-studio:
+    image: foxglove-studio
+    build: foxglove-studio
+    ports:
+      - "8080:8080"
+    volumes:
+      - foxglove-src-volume:/src/public/lib/foxglove
     networks:
       - app-network
 
@@ -54,3 +65,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  foxglove-src-volume:
