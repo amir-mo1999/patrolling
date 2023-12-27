@@ -1,0 +1,13 @@
+# Use an official ROS image as the base image
+FROM ros:melodic
+
+# Install rosbridge_suite
+RUN apt-get update && apt-get install -y \
+    ros-melodic-rosbridge-server \
+    ros-melodic-pcl-ros
+
+# Expose the default WebSocket port
+EXPOSE 9090
+
+# Set the entry point to launch rosbridge_websocket
+CMD ["roslaunch", "rosbridge_server", "rosbridge_websocket.launch"]

@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pymongo = "*"
+flask = "*"
+python-dotenv = "*"
+roslibpy = "*"
+pyyaml = "*"
+numpy = "*"
+pillow = "*"
+matplotlib = "*"
+flask-cors = "*"
+pytz = "*"
+open3d = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

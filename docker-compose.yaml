@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+  frontend:
+    image: frontend
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/home/appuser/src
+      - ./frontend/tailwind.config.js:/home/appuser/tailwind.config.js
+    env_file:
+      - ./frontend/.env
+    networks:
+      - app-network
+
+  backend:
+    image: backend
+    build:
+      context: backend
+      dockerfile: Dockerfile-App
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend/App:/home/appuser/App
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  ros-bridge:
+    image: ros-bridge
+    hostname: ros-bridge
+    build:
+      context: backend
+      dockerfile: Dockerfile-ROS-Bridge
+    ports:
+      - "9090:9090"
+    networks:
+      - app-network
+
+  mongo:
+    container_name: mongo
+    hostname: mongo
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
