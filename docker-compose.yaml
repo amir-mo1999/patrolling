@@ -15,17 +15,16 @@ services:
     networks:
       - app-network
 
-  backend:
-    image: backend
-    build:
-      context: backend
-      dockerfile: Dockerfile-App
+  arena-backend:
+    image: arena-backend
+    build: ./arena-backend
     ports:
       - "4000:4000"
     volumes:
-      - ./backend/App:/home/appuser/App
+      - ./arena-backend/endpoints:/home/appuser/endpoints
+      - ./arena-backend/utils:/home/appuser/utils
     env_file:
-      - ./backend/.env
+      - ./arena-backend/.env
     depends_on:
       - mongo
     networks:
