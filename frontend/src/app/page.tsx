@@ -10,6 +10,7 @@ import {
   CreateScenarioPopup,
   ScenarioList,
   CloseBtn,
+  FoxgloveStudioIFrame,
 } from "@/components";
 import { lightTheme, darkTheme, scenario } from "@/utils";
 import moment from "moment";
@@ -112,21 +113,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* Map */}
+            {/* Foxglove visualization */}
             <div className=" w-4/6 dark:bg-dark_secondary_color bg-secondary_color">
-              {isConnected ? (
-                <div>
-                  <div className=" w-1/6 text-primary_text dark:text-dark_primary_text">
-                    Map
-                  </div>
-                  {/* this renders the map after it was published*/}
-                  <Ros2DMap ros={ros} isDarkMode={isDarkMode}></Ros2DMap>
-                </div>
-              ) : (
-                <p className=" text-primary_text dark:text-dark_primary_text ">
-                  Connecting to ROS...
-                </p>
-              )}
+              <FoxgloveStudioIFrame></FoxgloveStudioIFrame>
             </div>
             {/* Right bar */}
             <div className="text-primary_text dark:text-dark_primary_text">

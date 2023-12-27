@@ -1,7 +1,12 @@
 "use client";
 import { useEffect } from "react";
+import React, { FC } from "react";
 
-export default function Home() {
+interface FoxGloveStudioIFrameProps {
+  className?: string;
+}
+
+const FoxGloveStudioIFrame: FC<FoxGloveStudioIFrameProps> = ({ className }) => {
   useEffect(() => {
     const iframe = document.getElementById(
       "foxglove-studio"
@@ -26,11 +31,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full h-full grow flex flex-col studio-page">
-      <iframe
-        id="foxglove-studio"
-        className="w-full h-full grow flex pl-2"
-      ></iframe>
+    <div
+      className={"w-full h-full grow flex flex-col studio-page " + className}
+    >
+      <iframe id="foxglove-studio" className="w-full h-full grow flex"></iframe>
     </div>
   );
-}
+};
+
+export default FoxGloveStudioIFrame;

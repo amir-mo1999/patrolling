@@ -1,3 +1,6 @@
 [submodule "foxglove-studio"]
 	path = foxglove-studio
 	url = https://github.com/servetoz/foxglove-studio.git
+[submodule "arena-backend"]
+	path = arena-backend
+	url = https://github.com/Arena-Rosnav/arena-backend.git
