@@ -1,0 +1,3 @@
+[submodule "foxglove-studio"]
+	path = foxglove-studio
+	url = https://github.com/servetoz/foxglove-studio.git
