@@ -11,7 +11,8 @@ services:
       - ./arena-frontend/pages:/home/appuser/pages
       - ./arena-frontend/network:/home/appuser/network
       - ./arena-frontend/utils:/home/appuser/utils
-      - foxglove-src-volume:/public/lib/foxglove
+      - ./arena-frontend/tailwind.config.js:/home/appuser/tailwind.config.js
+      - foxglove-src-volume:/home/appuser/public/lib/foxglove
     env_file:
       - ./arena-frontend/.env
     networks:
@@ -39,17 +40,6 @@ services:
       - "8080:8080"
     volumes:
       - foxglove-src-volume:/src/public/lib/foxglove
-    networks:
-      - app-network
-
-  ros-bridge:
-    image: ros-bridge
-    hostname: ros-bridge
-    build:
-      context: backend
-      dockerfile: Dockerfile-ROS-Bridge
-    ports:
-      - "9090:9090"
     networks:
       - app-network
 
