@@ -20,7 +20,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "roslib": "^1.4.1"
+    "roslib": "^1.4.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",

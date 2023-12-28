@@ -21,7 +21,10 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components"],
-      "@utils/*": ["./src/utils"]
+      "@utils/*": ["./src/utils"],
+      "@network/*": ["./src/network"],
+      "@hooks/*": ["./src/hooks"],
+      "@types/*": ["./src/types"]
     }
   },
   "include": [

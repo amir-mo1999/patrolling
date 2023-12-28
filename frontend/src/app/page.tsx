@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import ROSLIB from "roslib";
 import {
   RosConnector,
-  Ros2DMap,
   CreateScenarioBtn,
   DarkModeSwitch,
   CreateScenarioPopup,
-  ScenarioList,
   CloseBtn,
   FoxgloveStudioIFrame,
 } from "@/components";
+
 import { lightTheme, darkTheme, scenario } from "@/utils";
 import moment from "moment";
 import "moment-timezone";
@@ -77,11 +76,6 @@ export default function Home() {
               <div className="flex-none text-primary_text dark:text-dark_primary_text w-full pb-3">
                 Patrolling Scenarios
               </div>
-              <ScenarioList
-                activeScenario={activeScenario}
-                setActiveScenario={setActiveScenario}
-                className="flex-grow pr-4"
-              ></ScenarioList>
               <CreateScenarioBtn
                 className={
                   activeScenario === undefined
