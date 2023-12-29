@@ -7,13 +7,13 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./arena-frontend/components:/home/appuser/components
-      - ./arena-frontend/pages:/home/appuser/pages
-      - ./arena-frontend/network:/home/appuser/network
-      - ./arena-frontend/utils:/home/appuser/utils
-      - ./arena-frontend/tailwind.config.js:/home/appuser/tailwind.config.js
-      - foxglove-src-volume:/home/appuser/public/lib/foxglove
-      - foxglove-models-volume:/home/appuser/public/lib/foxglove-models
+      - ./arena-frontend/components:/app/components
+      - ./arena-frontend/pages:/app/pages
+      - ./arena-frontend/network:/app/network
+      - ./arena-frontend/utils:/app/utils
+      - ./arena-frontend/tailwind.config.js:/app/tailwind.config.js
+      - foxglove-src-volume:/app/public/lib/foxglove
+      - foxglove-models-volume:/app/public/lib/foxglove-models
     env_file:
       - ./arena-frontend/.env
     networks:
@@ -25,8 +25,8 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./arena-backend/endpoints:/home/appuser/endpoints
-      - ./arena-backend/utils:/home/appuser/utils
+      - ./arena-backend/endpoints:/app/endpoints
+      - ./arena-backend/utils:/app/utils
     env_file:
       - ./arena-backend/.env
     depends_on:
@@ -40,10 +40,10 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./foxglove-studio/public/lib/foxglove:/src/public/lib/foxglove
-      - ./foxglove-studio/public/lib/foxglove-models:/src/public/lib/foxglove-models
-      - foxglove-src-volume:/src/public/lib/foxglove
-      - foxglove-models-volume:/src/public/lib/foxglove-models
+      - ./foxglove-studio/public/lib/foxglove:/app/public/lib/foxglove
+      - ./foxglove-studio/public/lib/foxglove-models:/app/public/lib/foxglove-models
+      - foxglove-src-volume:/app/public/lib/foxglove
+      - foxglove-models-volume:/app/public/lib/foxglove-models
     networks:
       - app-network
 
